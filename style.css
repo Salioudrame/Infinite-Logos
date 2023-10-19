@@ -1,7 +1,54 @@
-body {
-  background-color: lightblue;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-h1 {
-  color: navy;
-  margin-left: 20px;
+
+body{
+  background: #f2f2f2;
+}
+.logos{
+  overflow: hidden;
+  padding: 60px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+.logos:hover  .logos-slide{
+  animation-play-state: paused;
+}
+.logos::after,
+.logos::before{
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+.logos:before{
+  left: 0;
+  background: linear-gradient(to left, transparent, white);
+}
+.logos::after{
+  right: 0;
+  background: linear-gradient(to right, transparent, white);
+}
+.logos-slide{
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+.logos-slide img{
+  height: 50px;
+  margin: 0 40px;
+}
+
+@keyframes slide {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-100%);
+  }
+  
 }
